@@ -14,7 +14,7 @@ var AddItem = React.createClass({
 		// check if key pressed is enter
 		if (e.keyCode === 13) {
 			this.props.add(this.state.newItem);
-			//reset to empty string.
+			//reset newItem to empty string.
 			this.setState({
 				newItem: ''
 			})
