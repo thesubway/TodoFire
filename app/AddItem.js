@@ -6,9 +6,9 @@ var AddItem = React.createClass({
 		}
 	},
 	handleChange: function(e) {
-		this.setState {
+		this.setState({
 			newItem: e.target.value
-		}
+		});
 	},
 	handleSubmit: function(e) {
 		// check if key pressed is enter
@@ -21,15 +21,15 @@ var AddItem = React.createClass({
 		};
 	},
 	render: function() {
-		return {
+		return (
 			<div>
 				<input type="text"
 				className="form-control"
-				value=this.state.newItem
-				onKeyDown=this.handleSubmit
-				onChange=this.handleChange />
+				value={this.state.newItem}
+				onKeyDown={this.handleSubmit}
+				onChange={this.handleChange} />
 			</div>
-		}
+		)
 	}
 });
 module.exports = AddItem;

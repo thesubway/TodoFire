@@ -46,4 +46,4 @@ var myList = React.createClass ({
 		)
 	}
 });
-module.exports = List;
+module.exports = myList;
