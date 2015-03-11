@@ -1,10 +1,13 @@
 var React = require('react');
+var ListContainer = require('./ListContainer');
 
 var App = React.createClass({
   render: function(){
     return (
-      <div>
-        Hello World
+      <div className="container">
+        <div className="row">
+          <ListContainer />
+        </div>
       </div>
     )
   }

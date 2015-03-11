@@ -25,27 +25,25 @@ var myList = React.createClass ({
 		    fontSize: 17
 		  }
 		};
-		var listItems = {
-			return {
-				this.props.items
-			}
-			<li>
-			<input key={index}
-			className="list-group-item"
-			style={styles.listGroup}
-			>
-			// span is a component
-			<span>
-				<input className="glyphicon glyphicon-remove"
-				style={styles.removeItem}
-				onClick.function ({
-					this.props.remove.bind(null,index)
-				})
-				>
-			</span>
-			</li>
-
-		}
+		var listItems = this.props.items.map(function(item, index){
+			return (
+				<li key={index} className="list-group-item" style={styles.listGroup}>
+          			<span
+            		className="glyphicon glyphicon-remove"
+            		style={styles.removeItem}
+            		onClick={this.props.remove.bind(null, index)}>
+          			</span>
+          			<span style={styles.todoItem}>
+            		{item}
+          			</span>
+        		</li>
+			)
+		}.bind(this));
+		return (
+			<ul style={styles.uList}>
+        	{listItems}
+      		</ul>
+		)
 	}
-
-})
+});
+module.exports = List;

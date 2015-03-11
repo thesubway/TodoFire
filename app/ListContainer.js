@@ -9,12 +9,18 @@ var ListContainer = React.createClass({
     }
   },
   componentDidMount: function(){
-    this.firebaseRef = new Firebase("https://reactweek-todofire.firebaseio.com/todos");
+    this.firebaseRef = new Firebase("https://todo-fire1.firebaseio.com/");
     this.firebaseRef.on('child_added', function(snapshot){
       this.setState({
         list: this.state.list.concat([{key: snapshot.key(), val: snapshot.val()}])
       })
     }.bind(this));
+    this.firebaseRef.on('child_removed',function(snapshot){
+      var key = snapshot.key();
+      var newList = this.state.list.filter(function(item){
+          return item.key !== key;
+      });
+    })
   },
   handleAddItem: function(newItem){
     this.setState({
